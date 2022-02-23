@@ -76,7 +76,7 @@ const buildCurrentWeather = function(city, temp, wind, humidity, uv) {
     currentDataContainer.textContent = ""
 
     const cityTitle = buildEl("h3", city + " " + date);
-    const cityTemp = buildEl("span", "Temp: " + temp);
+    const cityTemp = buildEl("span", "Temp: " + temp + " ℉");
     const cityWind = buildEl("span", "Wind: " + wind + " mph");
     const cityHumid = buildEl("span", "Humidity: " + humidity + "%");
     const cityUV = buildEl("span", "UV Index: " + uv);
@@ -90,11 +90,11 @@ const buildForecast = function(date, icon, temp, wind, humidity) {
     }
     
     const div = document.createElement("div");
-    div.classList = "flex-col";
+    div.classList = "flex-col w3-animate-zoom";
     const weatherIcon = document.createElement("img");
     weatherIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + icon +"@2x.png");
     const forecastDate = buildEl("h4", date);
-    const cityTemp = buildEl("span", "Temp: " + temp);
+    const cityTemp = buildEl("span", "Temp: " + temp + " ℉");
     const cityWind = buildEl("span", "Wind: " + wind + " mph");
     const cityHumid = buildEl("span", "Humidity: " + humidity + "%");
 
