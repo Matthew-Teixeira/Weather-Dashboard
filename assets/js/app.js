@@ -4,7 +4,6 @@ const currentDataContainer = document.querySelector("#current-weather-container"
 const forecastContainer = document.querySelector("#forecast-container");
 const cityHistory = document.querySelector("#search-history");
 let date = moment().format("MM/DD/YYYY");
-
 let pastCities = [];
 
 // first convert city to geo data
@@ -49,7 +48,6 @@ const formSubmitHandler = async function(e) {
         const geoData = await getGeoData(city);
 
         //update history
-
         if(pastCities.length > 0){
             for(let i = 0; i < pastCities.length; i++){
                 if(city === pastCities[i]){
@@ -130,7 +128,6 @@ async function pastCitiesHandler(e) {
     e.preventDefault();
     const city = e.target.getAttribute("data-city");
     
-
      if(city){
          const geoData = await getGeoData(city);
 
@@ -142,7 +139,6 @@ async function pastCitiesHandler(e) {
                 }
             }
         }
-
         pastCities.push(city);
         saveCity();
         
