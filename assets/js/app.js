@@ -8,7 +8,7 @@ let pastCities = [];
 
 // first convert city to geo data
 const getGeoData = async function(city) {
-    const respons = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city},US&appid=c20b708b2952fc5492619c70affe0677`)
+    const respons = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${city},US&appid=c20b708b2952fc5492619c70affe0677`)
     if(respons){
         const lat = respons.data[0].lat;
         const lon = respons.data[0].lon
