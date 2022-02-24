@@ -28,10 +28,18 @@ h1{
 }
 
 #current-weather-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     border: solid black 2px;
     padding: 0.5rem;
     height: 225px;
-    margin-right: .5rem;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    border-radius: .5rem;
+}
+
+#current-weather-container span, h3{
+    font-weight: 700;
 }
 
 #forcast-container{
@@ -44,8 +52,9 @@ img{
 }
 
 .grid{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     column-gap: 0.25rem;
 }
 
@@ -55,4 +64,45 @@ img{
     justify-content: flex-start;
     background-color: aqua;
     padding: .5rem;
+    border-radius: 1rem;
+    border: solid black 1px;
+    font-weight: 700;
+    padding: 1rem;
 }
+
+.flex-col img{
+    width: 45px;
+    height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .row{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-4{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .col-8{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #current-weather-container{
+        height: 175px;
+        margin-right: 0rem;
+    }
+
+    .flex-col{
+        flex-basis: 100%;
+        margin-bottom: .25rem;
+    }
+
+    h3{
+        text-align: center;
+    }
+  }
+
+/* grid-template-columns: repeat(auto-fill, 1fr); */
