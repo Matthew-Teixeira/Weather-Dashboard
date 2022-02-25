@@ -128,4 +128,32 @@ img{
     }
   }
 
+  /*Footer*/
+
+footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    background-color: rgb(48, 48, 48);
+}
+
+.connect{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand{
+    margin-top: 1rem;
+    color: white;
+}
+
+#linkedin{
+    height: 31px;
+    width: 31px;
+}
+
 /* grid-template-columns: repeat(auto-fill, 1fr); */
