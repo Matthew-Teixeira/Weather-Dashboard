@@ -75,6 +75,29 @@ img{
     height: auto;
 }
 
+.past-city-btn{
+    display: flex;
+    align-items: center;
+}
+
+.btn-secondary{
+    width: 100%;
+}
+
+.fa-solid, .fa-trash-can{
+    cursor: pointer;
+}
+
+.fa-trash-can:hover{
+    box-shadow: 4px 4px 6px rgb(78, 34, 34);
+}
+
+#my-location{
+    margin: 0 auto;
+    width: 50%;
+    min-width: 125px;
+}
+
 @media only screen and (max-width: 600px) {
     .row{
         display: flex;
