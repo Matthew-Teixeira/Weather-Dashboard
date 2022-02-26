@@ -5,5 +5,5 @@ Please utilize the following link to view this project’s associated page: [Wea
 
 Thank you!
 
-![weather-dash](./assets/images/wether-dash-1.png)
-![weather-dash](./assets/images/wether-dash-2.png)
+![weather-dash](./assets/images/weather-dash-1.png)
+![weather-dash](./assets/images/weather-dash-2.png)
