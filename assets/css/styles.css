@@ -195,6 +195,12 @@ img{
     img{
         margin: 0 auto;
     }
+    #myChart{
+        width: 100%;
+        height: auto;
+        padding: 0;
+        margin: 0;
+    }
   }
 
 /*Footer*/
