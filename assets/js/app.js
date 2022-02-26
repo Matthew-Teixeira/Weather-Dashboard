@@ -31,6 +31,11 @@ const getCurrentWeatherData = function (city, lat, lon) {
   ).then((res) => {
     if (res.ok) {
       res.json().then((data) => {
+
+        lineGraph(data);
+        //console.log(data.hourly);
+
+
         buildCurrentWeather(
           city,
           data.current.temp,
@@ -199,6 +204,61 @@ function handleError(err) {
   console.warn(`Error(${err.code}): ${err.message}`);
 }
 
+//Graphs 
+
+function lineGraph(data) {
+  let xValuesTime = [];
+  let yValuesTemp = [];
+
+  for(let i = 0; i < data.hourly.length-24; i++){
+    let time;
+    let temp = data.hourly[i].temp;
+
+     if(window.innerWidth < 980){
+       if(i === 0 || i === data.hourly.length-26){
+         time = moment(data.hourly[i].dt*1000).format('l');
+       }
+       else{
+         time = moment(data.hourly[i].dt*1000).format('LT');
+       }
+     }
+     else if(window.innerWidth >= 980){
+       if(i === 0 || i === data.hourly.length-25){
+         time = moment(data.hourly[i].dt*1000).format('l');
+       }
+       else{
+         time = moment(data.hourly[i].dt*1000).format('LT');
+       }
+     }
+
+    xValuesTime.push(time);
+    yValuesTemp.push(temp);
+  }
+
+  let chartMin = Math.round(Math.min(...yValuesTemp) - 5);
+  let chartMax = Math.round(Math.max(...yValuesTemp) + 5);
+
+  new Chart("myChart", {
+    type: "line",
+    data: {
+      labels: xValuesTime,
+      datasets: [{
+        fill: false,
+        lineTension: 0,
+        backgroundColor: "rgba(204, 61, 61, 0.8)",
+        borderColor: "rgba(0, 0, 0,0.6)",
+        data: yValuesTemp
+      }]
+    },
+    options: {
+      legend: {display: false},
+      scales: {
+        yAxes: [{ticks: {min: chartMin, max: chartMax}}],
+      }
+    }
+  });
+}
+
 //Event listeners
 
 form.addEventListener("submit", formSubmitHandler);
@@ -208,3 +268,20 @@ cityHistory.addEventListener("click", pastCitiesHandler);
 myLocation.addEventListener("click", getLocation);
 
 loadCities();
+
+// if(window.innerWidth < 980){
+    //   if(i === 0 || i === data.hourly.length-2){
+    //     time = moment(data.hourly[i].dt*1000).format('lll');
+    //   }
+    //   else{
+    //     time = moment(data.hourly[i].dt*1000).format('LTS');
+    //   }
+    // }
+    // else if(window.innerWidth >= 980){
+    //   if(i === 0 || i === data.hourly.length-1){
+    //     time = moment(data.hourly[i].dt*1000).format('lll');
+    //   }
+    //   else{
+    //     time = moment(data.hourly[i].dt*1000).format('LTS');
+    //   }
+    // }
